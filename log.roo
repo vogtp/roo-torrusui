@@ -1,0 +1,22 @@
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-13 12:09:30
+project --topLevelPackage ch.unibas.roo.torrus
+jpa setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY
+/*
+entity jpa --class ~.server.domain.Settings --testAutomatically
+field string --fieldName name --notNull
+field string --fieldName currentValue
+field string --fieldName defaultValue
+web gwt setup
+web gwt all --proxyPackage ~.client.proxy --requestPackage ~.client.request
+logging setup --level INFO
+// script ../../createTorrus.roo
+! 
+! mvn gwt:run
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-13 12:13:15
+perform eclipse
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-13 12:15:46
+hint
+hint topics
+hint gwt
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-13 12:40:55
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-13 13:06:51
