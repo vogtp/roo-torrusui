@@ -12,6 +12,7 @@
 			<g:Label text="Dataset" />
 			<g:ListBox ui:field="lbDataset" />
 			<g:Button text="Add Server" ui:field="buAddServer"/>
+			<g:Button text="Setting" ui:field="buAddSettings"/>
 		</g:HorizontalPanel>
 		<g:SimplePanel width="552px" height="341px" ui:field="gridPanel"/>
 	</g:HTMLPanel>

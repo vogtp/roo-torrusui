@@ -15,10 +15,10 @@
     <source path="client"/>
 	<source path="shared"/>
 
-<!-- 
+ 
 	<public path="public"/>
   <inherits name="com.allen_sauer.gwt.log.gwt-log-DEBUG" />
- -->
+ 
 
 	<!-- Logging Configuration -->
 	<set-property name="gwt.logging.enabled" value="TRUE"/>

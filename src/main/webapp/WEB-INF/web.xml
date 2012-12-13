@@ -94,7 +94,10 @@
         <session-timeout>10</session-timeout>
     </session-config>
     
-    
+      <!-- Default page to serve -->
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
     
     
 </web-app>

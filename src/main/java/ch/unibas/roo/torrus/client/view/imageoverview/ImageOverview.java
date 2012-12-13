@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 import ch.unibas.roo.torrus.client.config.ConfigHandler;
+import ch.unibas.roo.torrus.client.scaffold.ioc.DesktopInjectorWrapper;
+import ch.unibas.roo.torrus.client.scaffold.ioc.InjectorWrapper;
 import ch.unibas.roo.torrus.client.view.serverchooser.ServerChooserPopupPanel;
 import ch.unibas.roo.torrus.client.widget.TorrusImage;
 
@@ -39,8 +41,12 @@ public class ImageOverview extends Composite {
 	IntegerBox ibZoom;
 	@UiField
 	ListBox lbDataset;
-	@UiField SimplePanel gridPanel;
-	@UiField Button buAddServer;
+	@UiField
+	SimplePanel gridPanel;
+	@UiField
+	Button buAddServer;
+	@UiField
+	Button buAddSettings;
 	private String configName;
 
 	interface ImageOverviewUiBinder extends UiBinder<Widget, ImageOverview> {
@@ -145,6 +151,7 @@ public class ImageOverview extends Composite {
 			lbView.addItem("lastyear");
 		}
 	}
+
 	@UiHandler("buAddServer")
 	void onBuAddServerClick(ClickEvent event) {
 		final ServerChooserPopupPanel serverChooser = new ServerChooserPopupPanel();
@@ -163,10 +170,18 @@ public class ImageOverview extends Composite {
 		serverChooser.show();
 	}
 
+	@UiHandler("buAddSettings")
+	void onBuAddSettingsClick(ClickEvent event) {
+		InjectorWrapper injectorWrapper = GWT
+				.create(DesktopInjectorWrapper.class);
+		injectorWrapper.getInjector().getScaffoldApp().run();
+	}
+
 	private void addServer(String server) {
 		servers.add(0, server);
 		updateGrid();
 	}
+
 	@UiHandler("lbDataset")
 	void onLbDatasetAttachOrDetach(AttachEvent event) {
 		ConfigHandler.setSetAvailableConfigs(lbDataset);
