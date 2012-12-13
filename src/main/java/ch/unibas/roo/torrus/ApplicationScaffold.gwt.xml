@@ -17,8 +17,8 @@
 
  
 	<public path="public"/>
-  <inherits name="com.allen_sauer.gwt.log.gwt-log-DEBUG" />
- 
+ 	<inherits name="com.allen_sauer.gwt.log.gwt-log-DEBUG"  />
+ 	<set-property name="log_DivLogger" value="DISABLED" />
 
 	<!-- Logging Configuration -->
 	<set-property name="gwt.logging.enabled" value="TRUE"/>
