@@ -5,6 +5,7 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/aspect"/>
         <property name="context-root" value="torrus"/>
         <property name="java-output-path" value="/torrusfrontend/target/torrus-0.1.0.BUILD-SNAPSHOT/WEB-INF/classes"/>
     </wb-module>

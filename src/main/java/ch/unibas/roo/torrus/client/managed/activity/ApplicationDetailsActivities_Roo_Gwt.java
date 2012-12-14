@@ -4,6 +4,7 @@ package ch.unibas.roo.torrus.client.managed.activity;
 
 import ch.unibas.roo.torrus.client.managed.request.ApplicationEntityTypesProcessor;
 import ch.unibas.roo.torrus.client.managed.request.ApplicationRequestFactory;
+import ch.unibas.roo.torrus.client.proxy.DeviceProxy;
 import ch.unibas.roo.torrus.client.proxy.SettingsProxy;
 import ch.unibas.roo.torrus.client.scaffold.place.ProxyPlace;
 import com.google.gwt.activity.shared.Activity;
@@ -24,6 +25,11 @@ public abstract class ApplicationDetailsActivities_Roo_Gwt implements ActivityMa
         }
         final ProxyPlace proxyPlace = (ProxyPlace) place;
         return new ApplicationEntityTypesProcessor<Activity>() {
+
+            @Override
+            public void handleDevice(DeviceProxy proxy) {
+                setResult(new DeviceActivitiesMapper(requests, placeController).getActivity(proxyPlace));
+            }
 
             @Override
             public void handleSettings(SettingsProxy proxy) {

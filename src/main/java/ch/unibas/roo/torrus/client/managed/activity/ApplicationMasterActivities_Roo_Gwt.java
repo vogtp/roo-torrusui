@@ -4,8 +4,11 @@ package ch.unibas.roo.torrus.client.managed.activity;
 
 import ch.unibas.roo.torrus.client.managed.request.ApplicationEntityTypesProcessor;
 import ch.unibas.roo.torrus.client.managed.request.ApplicationRequestFactory;
+import ch.unibas.roo.torrus.client.managed.ui.DeviceListView;
+import ch.unibas.roo.torrus.client.managed.ui.DeviceMobileListView;
 import ch.unibas.roo.torrus.client.managed.ui.SettingsListView;
 import ch.unibas.roo.torrus.client.managed.ui.SettingsMobileListView;
+import ch.unibas.roo.torrus.client.proxy.DeviceProxy;
 import ch.unibas.roo.torrus.client.proxy.SettingsProxy;
 import ch.unibas.roo.torrus.client.scaffold.ScaffoldApp;
 import ch.unibas.roo.torrus.client.scaffold.place.ProxyListPlace;
@@ -27,6 +30,11 @@ public abstract class ApplicationMasterActivities_Roo_Gwt implements ActivityMap
         }
         ProxyListPlace listPlace = (ProxyListPlace) place;
         return new ApplicationEntityTypesProcessor<Activity>() {
+
+            @Override
+            public void handleDevice(DeviceProxy isNull) {
+                setResult(new DeviceListActivity(requests, ScaffoldApp.isMobile() ? DeviceMobileListView.instance() : DeviceListView.instance(), placeController));
+            }
 
             @Override
             public void handleSettings(SettingsProxy isNull) {

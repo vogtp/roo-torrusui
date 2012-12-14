@@ -2,10 +2,13 @@
 
 package ch.unibas.roo.torrus.client.managed.request;
 
+import ch.unibas.roo.torrus.client.request.DeviceRequest;
 import ch.unibas.roo.torrus.client.request.SettingsRequest;
 import ch.unibas.roo.torrus.shared.scaffold.ScaffoldRequestFactory;
 
 public interface ApplicationRequestFactory extends ScaffoldRequestFactory {
+
+    DeviceRequest deviceRequest();
 
     SettingsRequest settingsRequest();
 }

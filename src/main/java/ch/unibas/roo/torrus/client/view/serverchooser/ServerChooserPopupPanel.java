@@ -42,22 +42,24 @@ public class ServerChooserPopupPanel extends PopupPanel implements
 	@UiHandler("lbServers")
 	void onLbServersAttachOrDetach(AttachEvent event) {
 		if (event.isAttached()) {
-			// AsyncCallback<String[]> getNodesCallback = new
-			// AsyncCallback<String[]>() {
+			// final EventBus eventBus = new SimpleEventBus();
+			// RequestFactory requestFactory =
+			// GWT.create(ScaffoldRequestFactory.class);
+			// requestFactory.initialize(eventBus);
+			//
+			// requestFactory.
+			//
+			// Receiver<List<DeviceProxy>> receiver = new
+			// Receiver<List<DeviceProxy>>() {
 			//
 			// @Override
-			// public void onSuccess(String[] result) {
-			// for (int i = 0; i < result.length; i++) {
-			// lbServers.addItem(result[i]);
+			// public void onSuccess(List<DeviceProxy> response) {
+			// for (DeviceProxy deviceProxy : response) {
+			// lbServers.addItem(deviceProxy.getName());
 			// }
-			// }
-			//
-			// @Override
-			// public void onFailure(Throwable caught) {
-			// Window.alert(caught.getMessage());
 			// }
 			// };
-			// TorrusService.Util.getInstance().getNodes(getNodesCallback);
+			// nodes.fire(receiver);
 		}
 	}
 

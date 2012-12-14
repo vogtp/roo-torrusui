@@ -2,6 +2,7 @@
 
 package ch.unibas.roo.torrus.client.managed.request;
 
+import ch.unibas.roo.torrus.client.proxy.DeviceProxy;
 import ch.unibas.roo.torrus.client.proxy.SettingsProxy;
 import com.google.web.bindery.requestfactory.shared.EntityProxy;
 import java.util.Collections;
@@ -24,11 +25,16 @@ public abstract class ApplicationEntityTypesProcessor<T> {
 
     public static Set<java.lang.Class<? extends com.google.web.bindery.requestfactory.shared.EntityProxy>> getAll() {
         Set<Class<? extends EntityProxy>> rtn = new HashSet<Class<? extends EntityProxy>>();
+        rtn.add(DeviceProxy.class);
         rtn.add(SettingsProxy.class);
         return Collections.unmodifiableSet(rtn);
     }
 
     private static void process(ch.unibas.roo.torrus.client.managed.request.ApplicationEntityTypesProcessor<?> processor, Class<?> clazz) {
+        if (DeviceProxy.class.equals(clazz)) {
+            processor.handleDevice((DeviceProxy) null);
+            return;
+        }
         if (SettingsProxy.class.equals(clazz)) {
             processor.handleSettings((SettingsProxy) null);
             return;
@@ -37,6 +43,10 @@ public abstract class ApplicationEntityTypesProcessor<T> {
     }
 
     private static void process(ch.unibas.roo.torrus.client.managed.request.ApplicationEntityTypesProcessor<?> processor, Object proxy) {
+        if (proxy instanceof DeviceProxy) {
+            processor.handleDevice((DeviceProxy) proxy);
+            return;
+        }
         if (proxy instanceof SettingsProxy) {
             processor.handleSettings((SettingsProxy) proxy);
             return;
@@ -46,6 +56,8 @@ public abstract class ApplicationEntityTypesProcessor<T> {
 
     public void handleNonProxy(Object object) {
     }
+
+    public abstract void handleDevice(DeviceProxy proxy);
 
     public abstract void handleSettings(SettingsProxy proxy);
 
