@@ -34,3 +34,7 @@ web gwt request all --package ch.unibas.roo.torrus.client.request
 web gwt all --proxyPackage ch.unibas.roo.torrus.client.proxy --requestPackage ch.unibas.roo.torrus.client.request
 web gwt all --proxyPackage ch.unibas.roo.torrus.client.proxy --requestPackage ch.unibas.roo.torrus.client.request
 web gwt all --proxyPackage ch.unibas.roo.torrus.client.proxy --requestPackage ch.unibas.roo.torrus.client.request
+jpa setup --database HYPERSONIC_PERSISTENT --provider HIBERNATE 
+jpa setup --database MYSQL --provider HIBERNATE 
+jpa setup --database POSTGRES --provider HIBERNATE 
+jpa setup --database MYSQL --provider HIBERNATE 
