@@ -38,3 +38,5 @@ jpa setup --database HYPERSONIC_PERSISTENT --provider HIBERNATE
 jpa setup --database MYSQL --provider HIBERNATE 
 jpa setup --database POSTGRES --provider HIBERNATE 
 jpa setup --database MYSQL --provider HIBERNATE 
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log opened at 2012-12-14 21:55:17
+// Spring Roo 1.2.2.RELEASE [rev 7d75659] log closed at 2012-12-14 21:55:36
