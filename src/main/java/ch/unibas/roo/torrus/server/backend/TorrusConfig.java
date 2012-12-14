@@ -35,7 +35,6 @@ public class TorrusConfig {
 		devices = Device.findAllDevices();
 		String name = "node1";
 		deviceInsertIfNotExisis(name);
-		// deviceRepository.flush();
 	}
 
 	private void deviceInsertIfNotExisis(String name) {
@@ -45,6 +44,7 @@ public class TorrusConfig {
 		if (!devices.contains(d)) {
 			Log.warn("inserting " + name);
 			d.persist();
+			d.flush();
 		}
 		// if (deviceRepository.findByName(name).size() < 1) {
 		// Log.warn("inserting " + name);
